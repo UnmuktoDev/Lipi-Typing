@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="bn">
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Lipi Typing - Classic Bangla Typing Tutor</title>
+      <!-- SEO Metadata -->
+      <meta name="description" content="Lipi Typing is an open-source, typing tutor for the Classic Bangla layout. Improve your speed and accuracy with real-time feedback.">
+      <meta name="keywords" content="Bangla Typing, UniJoy Layout, Typing Tutor, Lipi Typing Bangla, Open Source Bangla, Bangla Keyboard, Speed Test, Practice, Speed, Precision">
+      <meta name="author" content="Unmukto (unmukto.org.bd)">
+      <!-- <link rel="canonical" href="https://lipityping.unmukto.org.bd" /> -->
+      <!-- Open Graph / Social -->
+      <!-- <meta property="og:title" content="Lipi Typing - Classic Bangla Typing Tutor">
+         <meta property="og:description" content="Open-source precision engine for mastering Classic Bangla typing. Built for the community.">
+         <meta property="og:url" content="https://github.com/UnmuktoDev/LipiTyping">
+         <meta property="og:type" content="website"> -->
+      <script src="https://cdn.tailwindcss.com"></script>
+      <!-- <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script> -->
+      <!-- <link rel="stylesheet" href="src/output.css"> -->
+      <!-- <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script> -->
+       <!-- <link rel="stylesheet" href="src/font/family.css"> -->
+      <link rel="stylesheet" href="src/style.css">
+      <!-- <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v7.2.0/css/all.css"> -->
+       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+      <!-- <link rel="stylesheet" href="fontawesome-pro/v7.1.0/css/all.css"> -->
+   </head>
+   <body class="bg-slate-950 p-2 md:p-4 min-h-screen flex flex-col items-center justify-center">
+      <!-- Welcome modal showing instructions and features for first-time users, hidden by default -->
+      <div id="welcome-modal" style="font-family: 'Hind Siliguri', sans-serif;" class="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-slate-950/90 backdrop-blur-xl hidden opacity-0 transition-opacity duration-500">
+         <div class="bg-slate-900 border-2 border-indigo-500/30 rounded-[2.5rem] w-full max-w-2xl overflow-hidden shadow-[0_0_50px_rgba(99,102,241,0.2)] transform scale-95 transition-transform duration-500 flex flex-col p-6 md:p-10 text-center gap-6">
+            <div class="flex flex-col gap-3">
+               <div class="flex justify-center">
+                  <div class="lowkey"><span class="key-logo">লিং</span></div>
+               </div>
+               <div class="flex flex-col gap-1">
+                  <h2 class="text-2xl md:text-3xl font-black text-slate-100">কীভাবে লিপি টাইপিং ব্যবহার করবেন?</h2>
+                  <p class="text-indigo-400 font-bold uppercase tracking-[0.2em] text-[11px]">Mastering the Art of Bangla Classic Typing</p>
+               </div>
+            </div>
+            <div class="text-slate-400 text-sm leading-relaxed space-y-4">
+               <div class="grid grid-cols-1 md:grid-cols-2 gap-3 text-left">
+                  <div class="bg-slate-950/50 p-3 rounded-xl border border-slate-800 flex gap-3 group hover:border-indigo-500/50 transition-colors">
+                     <div class="text-indigo-500 pt-1"><i class="fa-regular fa-square-plus text-xl"></i></div>
+                     <div>
+                        <span class="text-slate-200 font-black block text-[11px] uppercase tracking-wider">Custom Lesson</span>
+                        <p class="text-[14px] text-slate-500">নিজের ফাইল বা আর্টিকেল থেকে টেক্সট পেস্ট করে প্র্যাকটিস করুন।</p>
+                     </div>
+                  </div>
+                  <div class="bg-slate-950/50 p-3 rounded-xl border border-slate-800 flex gap-3 group hover:border-indigo-500/50 transition-colors">
+                     <div class="text-purple-500 pt-1"><i class="fa-solid fa-shuffle text-xl"></i></div>
+                     <div>
+                        <span class="text-slate-200 font-black block text-[11px] uppercase tracking-wider">Randomize (এলোমেলো)</span>
+                        <p class="text-[14px] text-slate-500">শব্দগুলোকে এলোমেলো করে কিবোর্ড পজিশন মুখস্থ করার দক্ষতা বাড়ান।</p>
+                     </div>
+                  </div>
+                  <div class="bg-slate-950/50 p-3 rounded-xl border border-slate-800 flex gap-3 group hover:border-indigo-500/50 transition-colors">
+                     <div class="text-amber-500 pt-1"><i class="fa-regular fa-alarm-clock text-xl"></i></div>
+                     <div>
+                        <span class="text-slate-200 font-black block text-[11px] uppercase tracking-wider">Time Limit</span>
+                        <p class="text-[14px] text-slate-500">নির্দিষ্ট সময়ের চ্যালেঞ্জ নিয়ে নিজের টাইপিং স্পিড পরীক্ষা করুন।</p>
+                     </div>
+                  </div>
+                  <div class="bg-slate-950/50 p-3 rounded-xl border border-slate-800 flex gap-3 group hover:border-indigo-500/50 transition-colors">
+                     <div class="text-emerald-500 pt-1"><i class="fa-solid fa-chart-simple text-xl"></i></div>
+                     <div>
+                        <span class="text-slate-200 font-black block text-[11px] uppercase tracking-wider">Live Analytics</span>
+                        <p class="text-[14px] text-slate-500">আপনার WPM (গতি) এবং Accuracy (নির্ভুলতা) রিয়েল-টাইমে দেখুন।</p>
+                     </div>
+                  </div>
+               </div>
+                <div class="bg-slate-950 p-4 rounded-2xl border-l-4 border-indigo-500 text-left">
+                    <h4 class="text-indigo-400 text-[15px] font-black uppercase mb-2 flex items-center gap-2">
+                        <i class="fa-solid fa-circle-info"></i> অবশ্যই মনে রাখতে হবে
+                    </h4>
+                    <div class="space-y-2 text-[14px] text-slate-300">
+                        <div class="flex gap-2">
+                            <span class="text-indigo-500">●</span>
+                            <p>আপনার পিসি বা ল্যাপটপের কিবোর্ড <span class="text-white font-bold underline">English</span> মোডে রাখুন। আলাদা কোনো কী-বোর্ড সফটওয়্যার (যেমন: অভ্র বা বিজয় কিবোর্ড) চালু করার প্রয়োজন নেই।</p>
+                        </div>
+                        <div class="flex gap-2">
+                            <span class="text-indigo-500">●</span>
+                            <p>স্বরবর্ণ, ব্যঞ্জনবর্ণ এবং যুক্তবর্ণ টাইপিং করতে সমস্যা হলে <kbd class="bg-slate-800 px-1 py-0.5 rounded text-slate-300 border border-slate-700 uppercase">UniJoy</kbd> দেখে পরবর্তী কোন কী চাপতে হবে তা সহজে দেখুন। বিস্তারিত দেখতে এই সাইটে দেখুন: <a href="/" target="_blank" class="text-indigo-400 font-bold underline hover:text-indigo-300 transition-colors">LIPI MAPPER</a>
+                        </div>
+                        <div class="flex gap-2">
+                            <span class="text-indigo-500">●</span>
+                            <p>যুক্তবর্ণ লিখতে হসন্ত হিসেবে <kbd class="bg-slate-800 px-1.5 py-0.5 rounded text-indigo-400 font-bold border border-slate-700">G (্)</kbd> ব্যবহার করুন। যেমন: <kbd class="bg-slate-800 px-1.5 py-0.5 rounded text-slate-300 border border-slate-700 uppercase">'ক' + ্ + 'ষ' = 'ক্ষ'</kbd>।</p>
+                        </div>
+                        <div class="flex gap-2">
+                            <span class="text-indigo-500">●</span>
+                            <p>স্বরবর্ণ (অ, আ, ই, ...) লিখতে সরাসরি <kbd class="bg-slate-800 px-1.5 py-0.5 rounded text-indigo-400 font-bold border border-slate-700">G (্)</kbd> চাপুন এবং তারপর নির্দিষ্ট কী-টি চাপুন।</p>
+                        </div>
+                        <div class="flex gap-2">
+                            <span class="text-indigo-500">●</span>
+                            <p>ব্যঞ্জনবর্ণের সাথে কার চিহ্ন (ি, া, ু) যোগ করতে কোনো হসন্ত প্রয়োজন হয় না; সরাসরি ওই অক্ষরের কী চাপলেই হয়।</p>
+                        </div>
+                        <div class="flex gap-2">
+                            <span class="text-indigo-500">●</span>
+                            <p>টাইপিংয়ে সমস্যা হলে <kbd class="bg-slate-800 px-1.5 py-0.5 rounded text-slate-300 border border-slate-700"><i class="fa-solid fa-arrows-rotate"></i></kbd> চাপুন এবং পেজের <kbd class="bg-slate-800 px-1.5 py-0.5 rounded text-slate-300 border border-slate-700">ক্যাশ (Cache)</kbd> পরিস্কার করুন।</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button id="welcome-close-btn" class="w-full bg-indigo-600 text-white py-4 rounded-xl font-black uppercase text-xs hover:bg-indigo-500 transition-all shadow-xl shadow-indigo-600/20 active:scale-95 group">
+                টাইপিং শুরু করি 
+                <i class="fa-solid fa-chevron-right ml-2 group-hover:translate-x-1 transition-transform"></i>
+            </button>
+         </div>
+      </div>
+      
+      <div class="w-full max-w-[1440px] flex flex-col gap-3 h-full max-h-screen overflow-hidden">
+
+         <header class="flex flex-col gap-2 bg-slate-900 px-5 py-3 rounded-2xl shadow-sm border border-slate-800 shrink-0">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-3">
+               <div class="flex items-center gap-3">
+                  <div id="lowkey"><span class="key-logo">লিং</span></div>
+                  <div>
+                     <h1 class="text-[20px] font-black text-slate-100 tracking-tight leading-none mb-1 logo">লিপি টাইপিং</h1>
+                     <div class="flex items-center gap-2">
+                        <p class="text-indigo-400 font-bold text-[15px] uppercase tracking-widest whitespace-nowrap motto">চর্চা • গতি • নিখুঁত</p>
+                     </div>
+                  </div>
+               </div>
+               <div class="flex items-center w-full">
+
+                  <div class="flex-1 flex justify-center">
+                     <nav id="category-nav" class="relative flex gap-1 bg-slate-800 p-0.5 rounded-lg border border-slate-700">
+                        <div id="category-indicator" class="absolute bg-indigo-600 h-full rounded-lg transition-all duration-300 ease-out pointer-events-none"></div>
+                     </nav>
+                  </div>
+
+                  <div class="flex items-center gap-3">
+                     <a href="https://github.com/UnmuktoDev/ClassicMasterBangla" target="_blank" class="group relative flex items-center justify-center px-4 py-[7.5px] bg-slate-800 hover:bg-slate-700 border border-slate-700 rounded-lg text-slate-300 text-[10px] font-black uppercase tracking-widest transition-all overflow-hidden">
+                        <span class="flex items-center gap-2 transition-all duration-300 ease-out group-hover:opacity-0 group-hover:-translate-y-1">
+                        <i class="fa-brands fa-github text-[15px]"></i>
+                        Source
+                        </span>
+                        <span class="absolute flex items-center gap-2 opacity-0 translate-y-1 transition-all duration-300 ease-out group-hover:opacity-100 group-hover:translate-y-0">
+                        GitHub
+                        <i class="fa-solid fa-arrow-up-right-from-square text-[12px]"></i>
+                        </span>
+                     </a>
+
+                     <button id="check-update" data-tip="Clear Cache" class="w-8 h-8 bg-slate-800 hover:bg-slate-700 border border-slate-700 rounded-lg flex items-center justify-center transition-all active:scale-90">
+                        <i id="update-icon" class="fa-solid fa-arrows-rotate text-slate-400"></i>
+                     </button>
+
+                     <button id="sound-toggle" class="w-8 h-8 bg-slate-800 hover:bg-slate-700 border border-slate-700 rounded-lg flex items-center justify-center transition-all active:scale-90">
+                        <i id="sound-on-icon" class="fa-solid fa-volume-high"></i>
+                        <i id="sound-off-icon" class="fa-solid fa-volume-xmark"></i>
+                     </button>
+
+                     <div class="flex gap-1 bg-slate-800 p-0.5 rounded-lg border border-slate-700">
+                        <button id="custom-text-btn" class="category-tab active group relative overflow-hidden">
+                           <span class="flex items-center gap-2 transition-all duration-300 ease-out group-hover:opacity-0 group-hover:-translate-y-1">
+                           Custom Lesson <i class="fa-regular fa-square-plus"></i>
+                           </span>
+                           <span class="absolute inset-0 flex items-center justify-center gap-2 opacity-0 translate-y-1 transition-all duration-300 ease-out group-hover:opacity-100 group-hover:translate-y-0">
+                           Put Your Text
+                           </span>
+                        </button>
+
+                        <button id="randomize-btn" class="category-tab flex items-center gap-2">
+                           <i class="fa-solid fa-shuffle text-[1rem] text-purple-500"></i>
+                        </button>
+                     </div>
+                  </div>
+               </div>
+
+            </div>
+            <div id="lesson-nav" class="flex flex-wrap gap-1.5 pt-2 border-t border-slate-800">
+            </div>
+
+         </header>
+
+         <main class="grid grid-cols-1 lg:grid-cols-4 gap-4 flex-1 overflow-hidden min-h-0">
+
+            <div class="lg:col-span-3 flex flex-col gap-4 overflow-hidden">
+
+               <div id="main-display" class="bg-slate-900 rounded-3xl p-4 md:p-6 shadow-xl border border-slate-800 flex flex-col gap-4 overflow-hidden shrink-0">
+
+                  <div class="flex flex-col md:flex-row gap-3 h-40 md:h-48">
+
+                     <div class="flex-1 relative bg-slate-800/50 rounded-2xl border border-slate-700 overflow-hidden">
+                        <div class="absolute top-2 left-1/2 -translate-x-1/2 text-[10px] font-black text-indigo-500 uppercase tracking-widest z-10">Target Manuscript</div>
+                        <div id="target-scroll-container" class="h-full flex items-center overflow-x-hidden whitespace-nowrap scroll-smooth">
+                           <div id="lesson-content-preview" class="text-3xl md:text-4xl font-medium text-slate-700 flex flex-row flex-nowrap items-center">
+
+                           </div>
+                        </div>
+                        <div class="absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-slate-900/80 to-transparent pointer-events-none z-10"></div>
+                        <div class="absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-slate-900/80 to-transparent pointer-events-none z-10"></div>
+                     </div>
+                  </div>
+
+                  <div class="flex items-center justify-between px-4 py-2 bg-slate-800/20 rounded-xl border border-slate-800">
+                     <div class="flex items-center justify-center gap-4">
+                        <div class="flex flex-col items-center w-12 shrink-0">
+                           <span class="text-[11px] leading-none font-black text-indigo-500 uppercase tracking-widest mb-1">
+                           UniJoy
+                           </span>
+                           <div class="h-8 flex items-center justify-center">
+                              <span id="unijoy-char-display" class="text-3xl font-black text-slate-100 -mt-1">
+                              -
+                              </span>
+                           </div>
+                        </div>
+                        <div class="w-px h-7 bg-slate-700 shrink-0"></div>
+                        <div class="flex flex-col items-center w-20 shrink-0">
+                           <span class="text-[11px] leading-none font-black text-indigo-500 uppercase tracking-widest mb-1">
+                           Latin Key
+                           </span>
+                           <div class="h-8 flex items-center justify-center">
+                              <span id="latin-key-display" class="text-2xl font-black text-indigo-500 uppercase flex items-center">
+                              -
+                              </span>
+                           </div>
+                        </div>
+                     </div>
+                     <div id="progress-container" class="flex-grow max-w-sm mx-4">
+                        <div class="flex justify-between text-[10px] font-black text-slate-500 uppercase tracking-widest mb-0.5">
+                           <span id="progress-text">0 / 0</span>
+                           <span>Progress</span>
+                        </div>
+                        <div class="h-1.5 bg-slate-800 rounded-full overflow-hidden shadow-inner">
+                           <div id="progress-bar-inner" class="h-full bg-indigo-500 transition-all duration-300 w-0"></div>
+                        </div>
+                     </div>
+                     <div id="completion-state" class="hidden">
+                        <button id="modal-restart-btn-second" class="bg-rose-600 text-white px-4 py-1.5 rounded-lg text-[9px] font-black uppercase tracking-widest shadow-lg hover:bg-rose-700 transition-all">Restart</button>
+                        <button id="show-results-btn" class="bg-indigo-600 text-white px-4 py-1.5 rounded-lg text-[9px] font-black uppercase tracking-widest shadow-lg hover:bg-indigo-700 transition-all">Report</button>
+                     </div>
+                  </div>
+               </div>
+
+               <div id="keyboard-container" class="bg-slate-900 p-3 md:p-4 rounded-3xl shadow-2xl border-4 border-slate-800 flex-1 flex flex-col justify-center overflow-hidden"></div>
+            </div>
+
+            <aside class="flex flex-col gap-4 h-full overflow-y-auto pr-1">
+               <div class="bg-slate-900 rounded-3xl p-4 shadow-xl border border-slate-800 flex flex-col gap-4 h-full">
+                  <div class="relative flex items-center justify-center px-1 mb-1 w-full">
+                     <div id="lesson-reset" 
+                        onclick="window.resetMyLesson()" 
+                        class="absolute left-0 cursor-pointer text-rose-500 hover:text-rose-400 transition-all transform hover:scale-110 active:scale-95">
+                        <i class="fa-solid fa-arrow-rotate-left text-lg"></i>
+                     </div>
+
+                     <h3 class="text-[13px] font-black text-emerald-500 uppercase tracking-widest">
+                        <i class="fa-solid fa-chart-simple text-emerald-500 text-lg"></i> Lipi Analytics
+                     </h3>
+
+                     <span id="pause-indicator" class="absolute right-0 text-[7px] font-black text-amber-500 animate-pulse bg-amber-950/30 px-2 py-0.5 rounded border border-amber-500/20 uppercase tracking-[0.2em]">
+                     PAUSED
+                     </span>
+                  </div>
+                  <div class="bg-slate-950 p-4 rounded-xl border-l-4 border-indigo-500 flex flex-col justify-center min-h-[90px] transition-transform">
+                     <span class="text-[10px] font-black text-indigo-500 uppercase tracking-widest block mb-1">Speed</span>
+                     <div class="flex items-baseline gap-1 text-white">
+                        <span id="wpm-display" class="text-4xl font-black tabular-nums leading-none">0</span>
+                        <span class="text-indigo-500/80 font-bold text-[10px] uppercase">WPM</span>
+                     </div>
+                  </div>
+                  <div class="bg-slate-950 p-5 rounded-2xl border-l-4 border-amber-400 flex flex-col justify-center min-h-[100px] shadow-inner transition-transform group relative">
+                     <div class="flex justify-between items-start">
+                        <span class="text-[10px] font-black text-amber-500 uppercase tracking-widest block mb-1">Duration</span>
+                        <button id="set-time-limit-btn" class="text-amber-500 hover:text-amber-300 transition-colors bg-amber-950/20 p-1 rounded-lg" data-tip="Set Time Limit">
+                        <i class="fa-regular fa-alarm-clock"></i>
+                        </button>
+                     </div>
+                     <div class="flex items-baseline gap-1 text-white">
+                        <span id="timer-display" class="text-5xl font-black tabular-nums leading-none">00:00</span>
+                     </div>
+                     <span id="limit-label" class="hidden absolute bottom-2 right-4 text-[10px] font-black text-amber-500/80 uppercase tracking-widest">Limit Set</span>
+                  </div>
+                  <div class="bg-slate-950 p-4 rounded-xl border-l-4 border-green-500 flex flex-col justify-center min-h-[90px] transition-transform">
+                     <span class="text-[10px] font-black text-green-500 uppercase tracking-widest block mb-1">Accuracy</span>
+                     <div class="flex items-baseline gap-1 text-white">
+                        <span id="accuracy-display" class="text-4xl font-black tabular-nums leading-none">100</span>
+                        <span class="text-green-500/80 font-bold text-[10px] uppercase">%</span>
+                     </div>
+                  </div>
+                  <div class="bg-slate-950 p-4 rounded-xl border-l-4 border-emerald-500 flex flex-col justify-center min-h-[90px] transition-transform">
+                     <span class="text-[10px] font-black text-emerald-500 uppercase tracking-widest block mb-1">Correct</span>
+                     <div class="flex items-baseline gap-1 text-white">
+                        <span id="correct-display" class="text-4xl font-black tabular-nums text-emerald-400 leading-none">0</span>
+                        <span class="text-emerald-500/80 font-bold text-[10px] uppercase">Hit</span>
+                     </div>
+                  </div>
+                  <div class="bg-slate-950 p-4 rounded-xl border-l-4 border-rose-500 flex flex-col justify-center min-h-[90px] transition-transform">
+                     <span class="text-[10px] font-black text-rose-500/70 uppercase tracking-widest block mb-1">Errors</span>
+                     <div class="flex items-baseline gap-1 text-white">
+                        <span id="wrong-display" class="text-4xl font-black tabular-nums text-rose-400 leading-none">0</span>
+                        <span class="text-rose-500/60 font-bold text-[10px] uppercase">Err</span>
+                     </div>
+                  </div>
+                  <div class="mt-auto pt-4 border-t border-slate-800 text-center">
+                     <p class="text-[9px] font-black text-slate-600 uppercase tracking-widest mb-1">Open Source By</p>
+                     <a href="https://unmukto.org.bd" target="_blank" class="text-indigo-500 font-black text-[11px] hover:text-indigo-400 transition-colors">UNMUKTO.ORG.BD</a>
+                  </div>
+               </div>
+            </aside>
+
+         </main>
+      </div>
+
+      <!-- Result modal showing session summary, WPM, accuracy, time, and mistakes; hidden by default -->
+      <div id="result-modal" class="fixed inset-0 z-[110] flex items-center justify-center p-4 bg-slate-950/80 backdrop-blur-md hidden opacity-0 transition-opacity duration-300">
+         <div class="bg-slate-900 border-2 border-indigo-500/20 rounded-[3rem] w-full max-w-md overflow-hidden shadow-2xl transform scale-95 transition-transform duration-300 flex flex-col">
+            <div class="p-8 pb-0 flex justify-center">
+               <div class="w-20 h-20 bg-indigo-600 rounded-full flex items-center justify-center text-white text-4xl shadow-lg shadow-indigo-600/30">🏆</div>
+            </div>
+            <div class="p-8 text-center flex flex-col gap-1">
+               <h2 class="text-3xl font-black text-slate-100">সেশন সমাপ্ত!</h2>
+               <p class="text-indigo-400 font-bold uppercase tracking-[0.2em] text-[10px]">Lipi Typing Report</p>
+            </div>
+            <div class="bg-slate-950 p-8 grid grid-cols-3 gap-4 border-y border-slate-800">
+               <div class="flex flex-col items-center">
+                  <span class="text-[9px] font-black text-white-500 uppercase mb-1 tracking-widest">Peak Speed</span>
+                  <div class="flex items-baseline gap-1">
+                     <span id="modal-wpm" class="text-3xl font-black text-white">0</span>
+                     <span class="text-indigo-500 font-bold text-[8px]">WPM</span>
+                  </div>
+               </div>
+               <div class="flex flex-col items-center border-x border-slate-800">
+                  <span class="text-[9px] font-black text-white-500 uppercase mb-1 tracking-widest">Accuracy</span>
+                  <div class="flex items-baseline gap-1">
+                     <span id="modal-acc" class="text-3xl font-black text-white">100</span>
+                     <span class="text-amber-500 font-bold text-[8px]">%</span>
+                  </div>
+               </div>
+               <div class="flex flex-col items-center">
+                  <span class="text-[9px] font-black text-white-500 uppercase mb-1 tracking-widest">Time Taken</span>
+                  <div class="flex items-baseline gap-1">
+                     <span id="modal-time" class="text-2xl font-black text-emerald-500 leading-none">00:00</span>
+                  </div>
+               </div>
+            </div>
+            <div class="p-8">
+               <span class="text-[10px] font-black text-white-600 uppercase tracking-widest block mb-3">Key Focus Areas:</span>
+               <div id="modal-mistakes" class="flex flex-wrap gap-2 min-h-[40px]"></div>
+            </div>
+            <div class="p-8 pt-0 flex gap-3">
+               <button id="modal-close-btn" class="flex-1 bg-slate-800 text-slate-400 py-4 rounded-2xl font-black uppercase text-[10px] tracking-widest hover:bg-slate-700 transition-colors">Close</button>
+               <button id="modal-restart-btn" class="flex-1 bg-rose-600 text-white py-4 rounded-2xl font-black uppercase text-[10px] tracking-widest hover:bg-rose-500 transition-all shadow-lg shadow-rose-600/20">Restart</button>
+            </div>
+         </div>
+      </div>
+
+      <!-- Modal for adding a custom lesson with textarea, type dropdowns, error messages, and start/cancel buttons; hidden by default -->
+      <div id="custom-text-modal" class="fixed inset-0 z-[120] flex items-center justify-center p-4 bg-slate-950/90 backdrop-blur-xl hidden opacity-0 transition-opacity duration-300">
+         <div class="bg-slate-900 border-2 border-indigo-500/30 rounded-[2.5rem] w-full max-w-2xl overflow-hidden shadow-2xl transform scale-95 transition-transform duration-300 flex flex-col p-8 gap-6">
+            <div class="flex flex-col gap-1">
+               <h2 class="text-2xl font-black text-slate-100 uppercase tracking-tight">Add Custom Lesson</h2>
+               <p class="font-hind-siliguri font-bold text-indigo-400 uppercase text-[15px]">আপনার নিজস্ব লেখা টাইপ করুন অথবা নিচের তালিকা থেকে একটি পাঠ্য বাছাই করুন</p>
+            </div>
+            <textarea id="custom-text-input" maxlength="5000" placeholder="এখানে বাংলা বা ইংরেজি লেখা পেস্ট করুন..." class="font-bcc-purno w-full h-48 bg-slate-950 border border-slate-800 rounded-2xl p-6 text-slate-200 focus:outline-none focus:border-indigo-500 transition-colors resize-none text-xl font-medium"></textarea>
+            <div class="flex justify-between items-center text-xs mt-2">
+               <span id="custom-text-counter" class="text-slate-400 font-bold">
+               0 / 5000
+               </span>
+               <span id="custom-text-limit-msg" class="text-amber-400 font-bold hidden">
+               😅 দুঃখিত! সর্বোচ্চ সীমায় পৌঁছে গেছেন
+               </span>
+            </div>
+
+            <div class="font-bcc-purno text-1xl flex flex-col gap-3">
+               <select id="lesson-type-dropdown" class="bg-slate-950 border border-slate-800 rounded-xl p-3 text-slate-200">
+                  <option value="">ধরন নির্বাচন করুন...</option>
+                  <option value="PARAGRAPH">অনুচ্ছেদ</option>
+               </select>
+               <select id="lessons-dropdown" class="hidden bg-slate-950 border border-slate-800 rounded-xl p-3 text-slate-200">
+                  <option value="">পাঠ্য নির্বাচন করুন...</option>
+               </select>
+            </div>
+
+            <div id="custom-text-error" class="text-red-500 text-sm mt-1 font-bold"></div>
+            <div class="flex gap-3">
+               <button id="custom-text-cancel" class="flex-1 bg-slate-800 text-slate-400 py-4 rounded-xl font-black uppercase text-[10px] tracking-widest hover:bg-slate-700 transition-colors">Cancel</button>
+               <button id="custom-text-start" class="flex-1 bg-indigo-600 text-white py-4 rounded-xl font-black uppercase text-[10px] tracking-widest hover:bg-indigo-500 transition-all shadow-lg shadow-indigo-600/20">Start Session</button>
+            </div>
+         </div>
+      </div>
+
+      <!-- Modal for setting typing session time limits with preset buttons, custom input, and close button; hidden by default -->
+      <div id="time-limit-modal" class="fixed inset-0 z-[130] flex items-center justify-center p-4 bg-slate-950/90 backdrop-blur-xl hidden opacity-0 transition-opacity duration-300">
+         <div class="bg-slate-900 border-2 border-amber-500/30 rounded-[2.5rem] w-full max-w-md overflow-hidden shadow-2xl transform scale-95 transition-transform duration-300 flex flex-col p-8 gap-6">
+            <div class="flex flex-col gap-1">
+               <h2 class="text-2xl font-black text-slate-100 uppercase tracking-tight">Set Time Limit</h2>
+               <p class="font-hind-siliguri font-bold text-amber-400 uppercase text-[15px]">টাইপিং সেশনের জন্য সময়সীমা নির্ধারণ করুন</p>
+            </div>
+            <div class="grid grid-cols-3 gap-3">
+               <button onclick="setTimeLimit(0)" class="limit-option p-4 bg-slate-800 rounded-xl border border-slate-700 text-slate-300 font-black text-[10px] uppercase hover:bg-slate-700 transition-colors">None</button>
+               <button onclick="setTimeLimit(10)" class="limit-option p-4 bg-slate-800 rounded-xl border border-slate-700 text-slate-300 font-black text-[10px] uppercase hover:bg-slate-700 transition-colors">00:10</button>
+               <button onclick="setTimeLimit(30)" class="limit-option p-4 bg-slate-800 rounded-xl border border-slate-700 text-slate-300 font-black text-[10px] uppercase hover:bg-slate-700 transition-colors">00:30</button>
+               <button onclick="setTimeLimit(60)" class="limit-option p-4 bg-slate-800 rounded-xl border border-slate-700 text-slate-300 font-black text-[10px] uppercase hover:bg-slate-700 transition-colors">01:00</button>
+               <button onclick="setTimeLimit(300)" class="limit-option p-4 bg-slate-800 rounded-xl border border-slate-700 text-slate-300 font-black text-[10px] uppercase hover:bg-slate-700 transition-colors">05:00</button>
+               <button onclick="setTimeLimit(600)" class="limit-option p-4 bg-slate-800 rounded-xl border border-slate-700 text-slate-300 font-black text-[10px] uppercase hover:bg-slate-700 transition-colors">10:00 Mins</button>
+            </div>
+            <div class="flex flex-col gap-2 pt-4 border-t border-slate-800">
+               <span class="text-[9px] font-black text-slate-500 uppercase tracking-widest">Custom Limit (Minutes, max 60)</span>
+               <div class="flex gap-2">
+                  <input type="number" id="custom-limit-input" min="1" max="60" placeholder="Min" class="flex-1 bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-amber-500 transition-colors font-bold">
+                  <button id="custom-limit-apply" class="bg-amber-600 text-white px-6 py-3 rounded-xl font-black uppercase text-[10px] tracking-widest hover:bg-amber-500 shadow-lg shadow-amber-600/20">Apply</button>
+               </div>
+            </div>
+            <button id="time-limit-close" class="mt-2 w-full bg-slate-800 text-slate-400 py-4 rounded-xl font-black uppercase text-[10px] tracking-widest hover:bg-slate-700 transition-colors">Close</button>
+         </div>
+      </div>
+
+      <!-- Rage modal: warns user to type calmly after rapid mistakes; hidden by default -->
+      <div id="rage-modal" class="fixed inset-0 z-[60] hidden flex items-center justify-center bg-slate-900/40 backdrop-blur-md transition-opacity duration-300">
+         <div class="bg-white dark:bg-slate-800 p-8 rounded-xl shadow-2xl max-w-sm text-center transform transition-transform duration-300 scale-95 border border-slate-200 dark:border-slate-700">
+            <div class="text-6xl mb-4 animate-bounce">🧘</div>
+            <h2 class="font-bcc-purno text-2xl font-bold text-slate-800 dark:text-slate-100 mb-2">
+               স্বচ্ছন্দে টাইপ করি
+            </h2>
+            <p class="font-bcc-purno text-lx text-slate-600 dark:text-slate-300 mb-6 leading-relaxed">
+               মনে হচ্ছে কীবোর্ডে একটু বেশি জোর পড়ছে। দ্রুত নয়, স্বচ্ছন্দে টাইপ করলে ভুল কমে। হাতটা শিথিল করুন, তারপর আবার শুরু করি।
+            </p>
+            <button id="close-rage-modal" class="font-bcc-purno w-full py-3 bg-amber-600 hover:bg-amber-500 text-white-500 font-bold rounded-lg transition-colors shadow-md">
+            ঠিক আছে, আবার চেষ্টা করি
+            </button>
+         </div>
+      </div>
+
+      <!-- Reset modal: confirms clearing current typing progress; hidden by default -->
+      <div id="reset-modal" class="fixed inset-0 z-[70] hidden flex items-center justify-center bg-slate-900/40 backdrop-blur-md transition-opacity duration-300">
+         <div class="bg-white dark:bg-slate-800 p-8 rounded-xl shadow-2xl max-w-sm w-full text-center transform transition-transform duration-300 scale-95 border border-slate-200 dark:border-slate-700">
+            <div class="text-6xl mb-4 animate-pulse">⚠️</div>
+            <h2 class="text-2xl font-bold text-slate-800 dark:text-slate-100 mb-2">
+               Reset Progress?
+            </h2>
+            <p class="text-lg text-slate-600 dark:text-slate-300 mb-6 leading-relaxed">
+               This will clear your current speed and accuracy.
+            </p>
+            <div class="flex gap-3">
+               <button id="cancel-reset"
+                  class="w-1/2 py-3 bg-slate-600 hover:bg-slate-500 text-white font-bold rounded-lg transition-colors">
+               Cancel
+               </button>
+               <button id="confirm-reset"
+                  class="w-1/2 py-3 bg-rose-600 hover:bg-rose-500 text-white font-bold rounded-lg transition-colors shadow-md">
+               Yes, Reset!
+               </button>
+            </div>
+         </div>
+      </div>
+
+      <script type="module" src="src/script.js"></script>
+      <script src="src/custom.js"></script>
+   </body>
+</html>

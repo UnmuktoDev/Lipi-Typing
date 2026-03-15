@@ -1,0 +1,56 @@
+.u0981 { /** ঁ **/
+    font-size: 35px;
+}
+
+.u09B0-09CD {
+    font-size: 20px;
+}
+
+.u09C2 {
+    font-size: 20px;
+    position: relative;
+    top: -10%;
+}
+
+.u09B0-09CD { /** র্ **/
+    /* font-size: 30px; */
+    position: relative;
+    top: 5px;
+    left: -5px;
+}
+
+.u09C3 { /** ৃ **/
+    font-size: 25px;
+    position: relative;
+    top: -5px;
+}
+
+.u09C2 { /** ূ **/
+    font-size: 25px;
+    position: relative;
+    top: -14px;
+}
+
+.u09C1 { /** ু **/
+    font-size: 25px;
+    position: relative;
+    top: -5px;
+}
+
+.u09BF { /** ি **/
+    position: relative;
+    left: -5px;
+}
+
+.u0964 { /** । **/
+    font-family: "bcc-purno-key", serif;
+    font-size: 20px;
+    position: relative;
+    top: -4px;
+}
+
+.u09CD { /** ্ **/
+    font-size: 28px;
+    position: relative;
+    top: -8px;
+}
