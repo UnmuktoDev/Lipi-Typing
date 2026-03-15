@@ -20,7 +20,6 @@ self.addEventListener('install', (event) => {
                     const response = await fetch(asset);
                     if (!response.ok) throw new Error(response.status);
                     await cache.put(asset, response.clone());
-                    console.log('Cached:', asset);
                 } catch (err) {
                     console.warn('Failed to cache:', asset, err);
                 }
@@ -33,10 +32,10 @@ self.addEventListener('install', (event) => {
 // Activate event: clean up old caches
 self.addEventListener('activate', (event) => {
     event.waitUntil(
-        caches.keys().then((names) =>
+        caches.keys().then((keys) =>
             Promise.all(
-                names.map((cache) => {
-                    if (cache !== CACHE_NAME) return caches.delete(cache);
+                keys.map((key) => {
+                    if (key !== CACHE_NAME) return caches.delete(key);
                 })
             )
         )
@@ -44,36 +43,33 @@ self.addEventListener('activate', (event) => {
     self.clients.claim();
 });
 
-// Fetch event: serve from cache or fetch from network
+// Fetch event: serve from cache or network
 self.addEventListener('fetch', (event) => {
-    const url = event.request.url;
+    const request = event.request;
 
-    // Always fetch this specific file from network
-    if (url.includes('public/update.json')) {
-        event.respondWith(fetch(event.request));
+    if (request.url.includes('public/update.json')) {
+        event.respondWith(fetch(request));
         return;
     }
 
     event.respondWith(
-        caches.match(event.request).then((cachedResponse) => {
+        caches.match(request).then((cachedResponse) => {
             if (cachedResponse) return cachedResponse;
 
-            return fetch(event.request)
+            return fetch(request)
                 .then((networkResponse) => {
-                    // Only cache GET requests to avoid errors
-                    if (event.request.method === 'GET') {
+                    if (request.method === 'GET') {
                         caches.open(CACHE_NAME).then((cache) => {
-                            cache.put(event.request, networkResponse.clone());
+                            cache.put(request, networkResponse.clone());
                         });
                     }
                     return networkResponse;
                 })
                 .catch(() => {
-                    // Fallback to offline page for navigation requests
-                    if (event.request.mode === 'navigate') {
+                    if (request.mode === 'navigate') {
                         return caches.match('/offline.html');
                     }
-                });
+                })
         })
     );
 });
