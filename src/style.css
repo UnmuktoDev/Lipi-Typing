@@ -9,6 +9,10 @@ body {
     background-color: #020617;
 }
 
+.hidden {
+    display: none;
+}
+
 .bengali {
     font-family: "bcc-purno-key", serif;
     unicode-bidi: isolate;
