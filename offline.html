@@ -1,133 +1,113 @@
 <!DOCTYPE html>
 <html lang="bn">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Lipi Typing - Offline</title>
-
-<!-- Tailwind CDN -->
-<script src="https://cdn.tailwindcss.com"></script>
-<link rel="stylesheet" href="style.css">
-
-<style>
-/* Fallback custom font and body styling */
-body {
-  font-family: 'BCC Purno', sans-serif;
-  font-size: 30px;
-  background: #0f172a;
-  color: #e2e8f0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100vh;
-  margin: 0;
-}
-
-.offline-card {
-  background: #1e293b;
-  border-radius: 2rem;
-  padding: 3rem 2rem;
-  max-width: 420px;
-  width: 90%;
-  text-align: center;
-  box-shadow: 0 10px 40px rgba(0,0,0,0.5);
-  transition: transform 0.3s ease;
-}
-
-.offline-card:hover {
-  transform: translateY(-5px);
-}
-
-.logo-circle {
-  width: 72px;
-  height: 72px;
-  background: #6366f1;
-  border-radius: 1rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 0 auto 1rem auto;
-  font-weight: 900;
-  font-size: 28px;
-  color: white;
-}
-
-h1 {
-  font-size: 1.75rem;
-  font-weight: 700;
-  margin-bottom: 0.5rem;
-}
-
-p {
-  font-size: 0.95rem;
-  color: #94a3b8;
-  line-height: 1.6;
-  margin-bottom: 2rem;
-}
-
-button.reload-btn {
-  display: inline-flex;
-  align-items: center;
-  background: #6366f1;
-  font-size: 15px;
-  color: white;
-  font-weight: 700;
-  padding: 0.4rem 1.2rem;
-  border-radius: 1rem;
-  transition: background 0.2s, transform 0.1s;
-}
-
-button.reload-btn:hover {
-  background: #4f46e5;
-  transform: scale(1.05);
-}
-
-button.reload-btn:active {
-  transform: scale(0.95);
-}
-
-.status {
-  margin-top: 1.5rem;
-  font-size: 0.8rem;
-  color: #64748b;
-}
-</style>
-</head>
-<body>
-
-<div class="offline-card">
-
-  <div class="flex justify-center">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Lipi Typing - Offline</title>
+        <!-- Tailwind CDN -->
+        <script src="https://cdn.tailwindcss.com"></script>
+        <link rel="stylesheet" href="style.css">
+        <style>
+            /* Fallback custom font and body styling */
+            body {
+            font-family: 'BCC Purno', sans-serif;
+            font-size: 30px;
+            background: #0f172a;
+            color: #e2e8f0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            }
+            .offline-card {
+            background: #1e293b;
+            border-radius: 2rem;
+            padding: 3rem 2rem;
+            max-width: 420px;
+            width: 90%;
+            text-align: center;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+            transition: transform 0.3s ease;
+            }
+            .offline-card:hover {
+            transform: translateY(-5px);
+            }
+            .logo-circle {
+            width: 72px;
+            height: 72px;
+            background: #6366f1;
+            border-radius: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem auto;
+            font-weight: 900;
+            font-size: 28px;
+            color: white;
+            }
+            h1 {
+            font-size: 1.75rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            }
+            p {
+            font-size: 0.95rem;
+            color: #94a3b8;
+            line-height: 1.6;
+            margin-bottom: 2rem;
+            }
+            button.reload-btn {
+            display: inline-flex;
+            align-items: center;
+            background: #6366f1;
+            font-size: 15px;
+            color: white;
+            font-weight: 700;
+            padding: 0.4rem 1.2rem;
+            border-radius: 1rem;
+            transition: background 0.2s, transform 0.1s;
+            }
+            button.reload-btn:hover {
+            background: #4f46e5;
+            transform: scale(1.05);
+            }
+            button.reload-btn:active {
+            transform: scale(0.95);
+            }
+            .status {
+            margin-top: 1.5rem;
+            font-size: 0.8rem;
+            color: #64748b;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="offline-card">
+            <div class="flex justify-center">
                 <div class="lowkey"><span class="key-logo">লিং</span></div>
             </div>
-
-  <h1>আপনি এখন অফলাইনে</h1>
-
-  <p>
-    ইন্টারনেট সংযোগ নেই।  
-    সংযোগ ফিরে এলে আবার চেষ্টা করুন।
-  </p>
-
-  <button class="reload-btn" onclick="location.reload()">
-    রিফ্রেশ
-  </button>
-
-  <div class="status">
-    Lipi Typing • Offline Mode
-  </div>
-
-</div>
-
-<script>
-// Auto reload when back online
-function updateOnlineStatus() {
-  if (navigator.onLine) {
-    location.reload();
-  }
-}
-
-window.addEventListener("online", updateOnlineStatus);
-</script>
-
-</body>
+            <h1>আপনি এখন অফলাইনে</h1>
+            <p>
+                ইন্টারনেট সংযোগ নেই।  
+                সংযোগ ফিরে এলে আবার চেষ্টা করুন।
+            </p>
+            <button class="reload-btn" onclick="location.reload()">
+            রিফ্রেশ
+            </button>
+            <div class="status">
+                Lipi Typing • Offline Mode
+            </div>
+        </div>
+        <script>
+            // Auto reload when back online
+            function updateOnlineStatus() {
+              if (navigator.onLine) {
+                location.reload();
+              }
+            }
+            
+            window.addEventListener("online", updateOnlineStatus);
+        </script>
+    </body>
 </html>
