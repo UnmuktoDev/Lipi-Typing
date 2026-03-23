@@ -9,6 +9,7 @@ const ASSETS_TO_CACHE = [
     './src/style.css',
     './src/unijoyKey.css',
     './src/keyboardMapper.js',
+    './src/typingEngine.js',
     './src/custom.js',
 
     './public/lipi_dataset.json'
