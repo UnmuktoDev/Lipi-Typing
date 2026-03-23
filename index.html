@@ -10,6 +10,7 @@
       <meta name="author" content="Unmukto (unmukto.org.bd)">
       <link rel="canonical" href="https://lipityping.unmukto.org.bd" />
       <script src="https://cdn.tailwindcss.com"></script>
+      <script type="module" src="src/typingEngine.js"></script>
       <link rel="stylesheet" href="src/style.css">
       <!-- <link rel="stylesheet" href="src/output.css"> -->
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -343,21 +344,34 @@
          </div>
       </div>
 
-      <!-- Modal for adding a custom lesson with textarea, type dropdowns, error messages, and start/cancel buttons; hidden by default -->
+      <!-- Modal for adding custom text lessons with Bangla typing mode and lesson selection -->
       <div id="custom-text-modal" class="fixed inset-0 z-[120] flex items-center justify-center p-4 bg-slate-950/90 backdrop-blur-xl hidden opacity-0 transition-opacity duration-300">
          <div class="bg-slate-900 border-2 border-indigo-500/30 rounded-[2.5rem] w-full max-w-2xl overflow-hidden shadow-2xl transform scale-95 transition-transform duration-300 flex flex-col p-8 gap-6">
-            <div class="flex flex-col gap-1">
+            <div class="flex flex-col">
                <h2 class="text-2xl font-black text-slate-100 uppercase tracking-tight">Add Custom Lesson</h2>
                <p class="font-hind-siliguri font-bold text-indigo-400 uppercase text-[15px]">আপনার নিজস্ব লেখা টাইপ করুন অথবা নিচের তালিকা থেকে একটি পাঠ্য বাছাই করুন</p>
             </div>
-            <textarea id="custom-text-input" maxlength="5000" placeholder="এখানে বাংলা বা ইংরেজি লেখা পেস্ট করুন..." class="font-bcc-purno w-full h-48 bg-slate-950 border border-slate-800 rounded-2xl p-6 text-slate-200 focus:outline-none focus:border-indigo-500 transition-colors resize-none text-xl font-medium"></textarea>
-            <div class="flex justify-between items-center text-xs mt-2">
-               <span id="custom-text-counter" class="text-slate-400 font-bold">
-               0 / 5000
-               </span>
+            
+            <div class="flex justify-end items-center text-xs -mb-3">
                <span id="custom-text-limit-msg" class="text-amber-400 font-bold hidden">
-               😅 দুঃখিত! সর্বোচ্চ সীমায় পৌঁছে গেছেন
+                  😅 দুঃখিত! সর্বোচ্চ সীমায় পৌঁছে গেছেন।
                </span>
+               <span id="custom-text-counter" class="text-slate-400 font-bold">
+                  0 / 5000
+               </span>
+            </div>
+
+            <textarea id="custom-text-input" maxlength="5000" placeholder="এখানে বাংলা লেখা পেস্ট করুন..." class="font-bcc-purno w-full h-48 bg-slate-950 border border-slate-800 rounded-2xl p-6 text-slate-200 focus:outline-none focus:border-indigo-500 transition-colors resize-none text-xl font-medium"></textarea>
+            
+            <div class="flex items-center justify-between bg-slate-950/50 p-4 rounded-xl border border-slate-800">
+                <div class="flex flex-col">
+                    <span class="text-[13px] font-black text-indigo-500 uppercase tracking-tight">Bangla Typing Mode</span>
+                    <p class="bengali text-[16px] text-white-400">সরাসরি বাংলা টাইপ করুন। অক্ষর টাইপের কী-সংযোগ জানতে <a href="/" target="_blank" class="mono text-[12px] text-indigo-400 font-bold underline hover:text-indigo-300 transition-colors">LIPI MAPPER</a> ঘুরে আসুন।</p>
+                </div>
+                <label class="relative inline-flex items-center cursor-pointer">
+                    <input type="checkbox" id="bangla-typing-toggle" class="sr-only peer">
+                    <div class="w-11 h-6 bg-slate-800 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-slate-400 after:border-slate-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-indigo-600"></div>
+                </label>
             </div>
 
             <div class="font-bcc-purno text-1xl flex flex-col gap-3">
